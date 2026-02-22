@@ -1,0 +1,180 @@
+:root {
+  --bg: #f6f2eb;
+  --panel: #fffdf8;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --accent: #0f766e;
+  --danger: #b91c1c;
+  --ok: #166534;
+  --warn: #b45309;
+  --line: #d1d5db;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 20% 0%, #fff7df 0%, var(--bg) 55%);
+}
+
+.app {
+  width: min(900px, 92vw);
+  margin: 2rem auto;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.header,
+.status-card,
+.exercise {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 6px 20px rgba(20, 30, 50, 0.05);
+}
+
+.header h1 {
+  margin: 0 0 0.3rem;
+}
+
+.header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.status-grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.status-card h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.status-card p {
+  margin: 0.2rem 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-weight: 700;
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge.locked {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.instruction {
+  margin-top: 0;
+  color: var(--muted);
+}
+
+.sentence {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  padding: 0.8rem;
+  border-radius: 10px;
+  background: #f9fafb;
+  border: 1px dashed var(--line);
+}
+
+.target {
+  background: #fde68a;
+  border-radius: 6px;
+  padding: 0.1rem 0.25rem;
+  font-weight: 700;
+}
+
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin: 0.9rem 0;
+  padding: 0.7rem;
+}
+
+legend {
+  font-weight: 700;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.options label {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  background: white;
+}
+
+button {
+  margin-top: 0.4rem;
+  padding: 0.55rem 1rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #374151;
+  margin-left: 0.5rem;
+}
+
+button.hidden {
+  display: none;
+}
+
+.feedback {
+  min-height: 2rem;
+  padding-top: 0.2rem;
+  font-weight: 700;
+}
+
+.feedback.ok {
+  color: var(--ok);
+}
+
+.feedback.error {
+  color: var(--danger);
+}
+
+.feedback.warn {
+  color: var(--warn);
+}
+
+@media (max-width: 640px) {
+  .sentence {
+    font-size: 1.06rem;
+  }
+
+  .options label {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  button.secondary {
+    margin-left: 0;
+  }
+}

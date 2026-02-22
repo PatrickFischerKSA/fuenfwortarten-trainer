@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fuenfwortarten-Trainer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1>Fuenfwortarten-Trainer</h1>
+        <p>
+          Wortarten: Nomen, Adjektiv, Verb, Pronomen (Personal, Possessiv,
+          Reflexiv, Demonstrativ, Indefinit)
+        </p>
+      </header>
+
+      <section class="status-grid">
+        <article class="status-card" id="series-1-status">
+          <h2>Serie 1</h2>
+          <p id="progress-series-1">0 / 5 geloest</p>
+          <p class="badge" id="series-1-badge">Aktiv</p>
+        </article>
+        <article class="status-card" id="series-2-status">
+          <h2>Serie 2</h2>
+          <p id="progress-series-2">0 / 5 geloest</p>
+          <p class="badge locked" id="series-2-badge">Gesperrt</p>
+        </article>
+      </section>
+
+      <section class="exercise" id="exercise-card">
+        <h2 id="exercise-title">Aufgabe</h2>
+        <p class="instruction">
+          Bestimme die Wortart des markierten Wortes.
+        </p>
+        <p class="sentence" id="sentence"></p>
+
+        <form id="answer-form">
+          <fieldset>
+            <legend>Hauptwortart</legend>
+            <div class="options" id="main-options"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Pronomenform (nur wenn Pronomen)</legend>
+            <div class="options" id="pronoun-options"></div>
+          </fieldset>
+
+          <button type="submit" id="submit-btn">Pruefen</button>
+          <button type="button" id="next-btn" class="secondary hidden">
+            Naechste Aufgabe
+          </button>
+        </form>
+
+        <div class="feedback" id="feedback" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
