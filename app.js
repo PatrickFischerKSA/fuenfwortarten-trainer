@@ -1,4 +1,11 @@
-const MAIN_CLASSES = ["Nomen", "Adjektiv", "Verb", "Pronomen"];
+const MAIN_CLASSES = [
+  "Nomen",
+  "Adjektiv",
+  "Verb",
+  "Pronomen",
+  "Präposition",
+  "Konjunktion",
+];
 const PRONOUN_TYPES = [
   "Personal",
   "Possessiv",
@@ -12,34 +19,34 @@ const SERIES = [
     id: 1,
     tasks: [
       {
-        sentence: "Der Hund schlaeft unter dem Tisch.",
-        target: "Hund",
+        sentence: "Der Bär schläft unter dem Tisch.",
+        target: "Bär",
         answer: { main: "Nomen", pronounType: null },
         hint: "Achte auf ein Wort, das ein Lebewesen oder Ding bezeichnet.",
       },
       {
-        sentence: "Die rote Tasche liegt im Flur.",
-        target: "rote",
+        sentence: "Die grüne Tasche liegt im Flur.",
+        target: "grüne",
         answer: { main: "Adjektiv", pronounType: null },
         hint: "Dieses Wort beschreibt eine Eigenschaft.",
       },
       {
-        sentence: "Mia schreibt heute einen langen Brief.",
-        target: "schreibt",
+        sentence: "Mia übt heute einen langen Vortrag.",
+        target: "übt",
         answer: { main: "Verb", pronounType: null },
-        hint: "Frage nach der Taetigkeit: Was tut Mia?",
+        hint: "Frage nach der Tätigkeit: Was tut Mia?",
       },
       {
-        sentence: "Wir gehen morgen frueh zum Markt.",
+        sentence: "Wir gehen morgen früh zum Markt.",
         target: "Wir",
         answer: { main: "Pronomen", pronounType: "Personal" },
         hint: "Das Wort ersetzt Namen und zeigt, wer etwas tut.",
       },
       {
-        sentence: "Dieses Buch gehoert niemandem, aber ich nehme es mit.",
-        target: "Dieses",
-        answer: { main: "Pronomen", pronounType: "Demonstrativ" },
-        hint: "Das Pronomen zeigt auf etwas Bestimmtes hin.",
+        sentence: "Der Schlüssel liegt zwischen den Büchern.",
+        target: "zwischen",
+        answer: { main: "Präposition", pronounType: null },
+        hint: "Dieses Wort zeigt ein Verhältnis zwischen Wörtern im Satz.",
       },
     ],
   },
@@ -47,36 +54,35 @@ const SERIES = [
     id: 2,
     tasks: [
       {
-        sentence: "Nach dem Vortrag lobte jeder den klaren Aufbau.",
-        target: "jeder",
+        sentence: "Obwohl es stürmte, blieb die Bühne geöffnet.",
+        target: "Obwohl",
+        answer: { main: "Konjunktion", pronounType: null },
+        hint: "Dieses Wort verbindet Satzteile oder ganze Sätze.",
+      },
+      {
+        sentence: "Jemand öffnete während der Führung plötzlich die Tür.",
+        target: "Jemand",
         answer: { main: "Pronomen", pronounType: "Indefinit" },
         hint: "Das Wort meint eine unbestimmte Personengruppe.",
       },
       {
-        sentence: "Lina bindet sich vor dem Lauf die Schuhe fester.",
+        sentence: "Lina erinnert sich vor dem Auftritt an die Übungen.",
         target: "sich",
         answer: { main: "Pronomen", pronounType: "Reflexiv" },
-        hint: "Das Pronomen bezieht sich auf das Subjekt zurueck.",
+        hint: "Das Pronomen bezieht sich auf das Subjekt zurück.",
       },
       {
-        sentence: "Sein Fahrrad steht noch vor der alten Werkstatt.",
+        sentence: "Sein älterer Bruder stellt sein Fahrrad in die Garage.",
         target: "Sein",
         answer: { main: "Pronomen", pronounType: "Possessiv" },
-        hint: "Dieses Pronomen zeigt Besitz oder Zugehoerigkeit.",
+        hint: "Dieses Pronomen zeigt Besitz oder Zugehörigkeit.",
       },
       {
         sentence:
-          "Obwohl der Weg steil war, erreichten die Wanderer bei Sonnenuntergang die Huette.",
-        target: "steil",
-        answer: { main: "Adjektiv", pronounType: null },
-        hint: "Das Wort beschreibt den Zustand des Weges.",
-      },
-      {
-        sentence:
-          "Nachdem der Regen nachliess, trugen die Kinder die nassen Jacken ins Haus.",
-        target: "trugen",
-        answer: { main: "Verb", pronounType: null },
-        hint: "Suche die Handlung im Satz und pruefe die Zeitform.",
+          "Nachdem der Regen nachließ, sammelten die Kinder dieses nasse Laub in Körben.",
+        target: "dieses",
+        answer: { main: "Pronomen", pronounType: "Demonstrativ" },
+        hint: "Das Pronomen zeigt auf etwas Bestimmtes hin.",
       },
     ],
   },
@@ -125,8 +131,11 @@ function escapeRegExp(value) {
 }
 
 function highlightTarget(sentence, target) {
-  const regex = new RegExp(`\\b${escapeRegExp(target)}\\b`);
-  return sentence.replace(regex, `<span class="target">${target}</span>`);
+  const regex = new RegExp(
+    `(^|[^\\p{L}])(${escapeRegExp(target)})(?=[^\\p{L}]|$)`,
+    "u"
+  );
+  return sentence.replace(regex, `$1<span class="target">$2</span>`);
 }
 
 function currentSeries() {

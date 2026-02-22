@@ -4,10 +4,10 @@
 `fuenfwortarten-trainer`
 
 ## Kurzbeschreibung (Description)
-Interaktive Übungsumgebung zur Fünfwortarten-Lehre mit Sofortkorrektur, Pronomen-Differenzierung und Serien-Freischaltung.
+Interaktive Übungsumgebung zur Wortarten-Lehre mit Sofortkorrektur, Pronomen-Differenzierung und Serien-Freischaltung.
 
 ## About (längere Variante)
-Ein browserbasierter Grammatik-Trainer für Nomen, Adjektiv, Verb und Pronomenformen (Personal-, Possessiv-, Reflexiv-, Demonstrativ- und Indefinitpronomen). Enthält zwei aufeinander aufbauende Serien mit je fünf Sätzen, Fortschrittsanzeige und ein dreistufiges Feedback-System (Richtig/Falsch, Tipp, Modellantwort).
+Ein browserbasierter Grammatik-Trainer für Nomen, Adjektiv, Verb, Präpositionen, Konjunktionen und Pronomenformen (Personal-, Possessiv-, Reflexiv-, Demonstrativ- und Indefinitpronomen). Enthält zwei aufeinander aufbauende Serien mit je fünf Sätzen, Fortschrittsanzeige und ein dreistufiges Feedback-System (Richtig/Falsch, Tipp, Modellantwort).
 
 ## Topics (Vorschlag)
 - deutschunterricht

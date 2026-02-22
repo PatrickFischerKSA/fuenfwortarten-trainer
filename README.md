@@ -1,11 +1,13 @@
-# Fuenfwortarten-Trainer
+# Wortarten-Trainer
 
-Interaktive Uebungsumgebung mit Sofortkorrektur zur Fuenfwortarten-Lehre.
+Interaktive Uebungsumgebung mit Sofortkorrektur zur Wortarten-Lehre.
 
 ## Enthaltene Wortarten
 - Nomen
 - Adjektiv
 - Verb
+- Praeposition
+- Konjunktion
 - Pronomen: Personal, Possessiv, Reflexiv, Demonstrativ, Indefinit
 
 ## Lernmodus
